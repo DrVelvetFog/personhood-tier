@@ -1,0 +1,19 @@
+{
+  "name": "personhood-tier",
+  "version": "0.1.0",
+  "description": "Demo: a third assurance tier for attestation systems — device attestation proves genuine hardware; a personhood credential caps accounts-per-human.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node src/server.mjs",
+    "demo": "node demo/run.mjs"
+  },
+  "dependencies": {
+    "@mysten/sui": "^2.23.2",
+    "ethers": "^6.13.0",
+    "express": "^4.21.0",
+    "jose": "^5.9.0",
+    "por-sdk": "^0.8.1",
+    "siwe": "^2.3.2"
+  }
+}
