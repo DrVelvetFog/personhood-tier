@@ -73,9 +73,9 @@ The composed session claim:
 
 ## What's real, what's stubbed
 
-**Real:** SIWE session auth; the PoR credential read (live Sui testnet, over gRPC — see
-`src/grpcSuiAdapter.mjs`; public JSON-RPC was retired in mid-2026, so the adapter serves
-por-sdk's reads from the same fullnode's gRPC endpoint); the challenge binding; the
+**Real:** SIWE session auth; the PoR credential read — live Sui testnet, with level,
+expiry, **and revocation** enforced from chain state (por-sdk ≥ 0.9 speaks gRPC
+natively, since public JSON-RPC was retired in mid-2026); the challenge binding; the
 claim-keying logic.
 
 **Stubbed:** the `attested` tier. `/session/attest` grants it unconditionally and says so
@@ -84,10 +84,6 @@ Integrity verdict server-side, with three disciplines that mirror this demo's ow
 leg: bind the account into the attested challenge; treat device dedup as a rate-limiter,
 not a uniqueness set (attest keys don't survive app delete/restore); and run any dedup in
 observe mode before enforcing.
-
-**Skipped:** the revocation devInspect (`checkRevocation: false`) until por-sdk's
-transport migration lands — a freshly minted demo credential is not revoked. Level and
-expiry are enforced from chain state.
 
 ## What this does — and does not — claim
 

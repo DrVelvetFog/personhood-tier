@@ -1,6 +1,5 @@
-// Mint a testnet L0 PoR credential over gRPC — a stand-in for the attestor's
-// scripts/test-mint.js, which (like por-sdk's default transport) still speaks
-// the retired public JSON-RPC. PoR-operator only: needs ATTESTOR_SECRET_KEY.
+// Mint a testnet L0 PoR credential over gRPC. PoR-operator only: needs the
+// attestor checkout's .env (ATTESTOR_SECRET_KEY) and deployment.<network>.json.
 //
 //   node demo/mint.mjs <recipient-sui-address> [path-to-attestor-.env]
 //
